@@ -1,3 +1,4 @@
+// Layout component - must be used inside BrowserRouter context
 import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";

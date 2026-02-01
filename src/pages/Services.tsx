@@ -1,66 +1,106 @@
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Download, Info, CheckCircle2 } from "lucide-react";
+import { Download, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const serviceImage1 = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800";
-const serviceImage2 = "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800";
-const serviceImage3 = "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800";
+const productEngineOil = "https://images.unsplash.com/photo-1635810230588-403d1547432d?auto=format&fit=crop&q=80&w=800";
+const productTransmissionOil = "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800";
+const productCoolants = "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800";
 
 const serviceCategories = [
   {
-    id: "technical-expertise",
-    title: "Expertise Technique",
-    description: "Conseils spécialisés pour l'optimisation de vos flottes et de vos équipements industriels.",
-    image: serviceImage1,
+    id: "engine-oils",
+    title: "Huiles Moteur",
+    description: "Huiles moteur premium pour moteurs essence et diesel, répondant aux dernières spécifications API, ACEA et OEM.",
+    image: productEngineOil,
     services: [
       {
-        name: "Analyse de Fluides",
-        description: "Diagnostic complet de l'état de vos lubrifiants pour prévenir les pannes.",
-        features: ["Rapports détaillés", "Préconisations", "Suivi historique"],
+        name: "SOMA Synth 5W-30",
+        specs: "API SN Plus, ACEA C3",
+        viscosity: "5W-30",
+        type: "100% Synthèse",
       },
       {
-        name: "Audit Lubrification",
-        description: "Optimisation de votre plan de graissage et réduction des références.",
-        features: ["Économies d'énergie", "Durabilité accrue", "Conformité"],
+        name: "SOMA Synth 5W-40",
+        specs: "API SP, ACEA A3/B4",
+        viscosity: "5W-40",
+        type: "100% Synthèse",
       },
       {
-        name: "Formation Technique",
-        description: "Programmes de formation pour vos équipes sur les nouvelles technologies.",
-        features: ["Session sur site", "Certification", "Supports experts"],
+        name: "SOMA Performance 10W-40",
+        specs: "API SL, ACEA A3/B3",
+        viscosity: "10W-40",
+        type: "Semi-Synthétique",
       },
       {
-        name: "Support OEM",
-        description: "Accompagnement pour le respect des garanties constructeurs.",
-        features: ["Expertise marques", "Vérification specs", "Documentation"],
+        name: "SOMA Diesel HD 15W-40",
+        specs: "API CK-4, ACEA E9",
+        viscosity: "15W-40",
+        type: "Heavy Duty",
       },
     ],
   },
   {
-    id: "industrial-solutions",
-    title: "Solutions Industrielles",
-    description: "Services sur mesure pour les secteurs de l'industrie lourde et de la manufacture.",
-    image: serviceImage2,
+    id: "transmission-oils",
+    title: "Huiles de Transmission & Boîte",
+    description: "Fluides de haute qualité pour transmissions automatiques, manuelles et CVT.",
+    image: productTransmissionOil,
     services: [
       {
-        name: "Maintenance Prédictive",
-        description: "Solutions connectées pour surveiller l'usure de vos machines en temps réel.",
-        features: ["Capteurs IoT", "Alertes mobiles", "Analyse IA"],
+        name: "SOMA ATF Multi",
+        specs: "Dexron VI, Mercon LV",
+        viscosity: "ATF",
+        type: "Multi-Véhicules",
       },
       {
-        name: "Gestion des Déchets",
-        description: "Collecte et valorisation de vos huiles usagées en conformité avec les normes.",
-        features: ["Traçabilité", "Certificats verts", "Logistique dédiée"],
+        name: "SOMA Gear GL-5 75W-90",
+        specs: "API GL-5, MT-1",
+        viscosity: "75W-90",
+        type: "Synthèse Boîte",
       },
       {
-        name: "Stockage & Distribution",
-        description: "Installation de systèmes de stockage intelligents et distribution automatisée.",
-        features: ["Cuves connectées", "Inventaire auto", "Sécurité"],
+        name: "SOMA CVT Fluid",
+        specs: "NS-2, CVTF+4",
+        viscosity: "CVT",
+        type: "Spécifique CVT",
       },
       {
-        name: "Filtration Mobile",
-        description: "Nettoyage de vos circuits d'huile sur site sans arrêt de production.",
-        features: ["Rapidité", "Pureté ISO", "Performance"],
+        name: "SOMA PSF Universal",
+        specs: "CHF 11S Compatible",
+        viscosity: "PSF",
+        type: "Direction Assistée",
+      },
+    ],
+  },
+  {
+    id: "coolants",
+    title: "Liquides de Refroidissement & Additifs",
+    description: "Liquides de refroidissement et additifs de performance pour une santé moteur optimale.",
+    image: productCoolants,
+    services: [
+      {
+        name: "SOMA Coolant G12+",
+        specs: "VW TL 774-D/F",
+        viscosity: "Prêt à l'emploi",
+        type: "Liquide OAT",
+      },
+      {
+        name: "SOMA Antifreeze Concentrate",
+        specs: "ASTM D3306",
+        viscosity: "Concentré",
+        type: "Universel",
+      },
+      {
+        name: "SOMA Fuel System Cleaner",
+        specs: "Compatible Injection Directe",
+        viscosity: "250ml",
+        type: "Additif",
+      },
+      {
+        name: "SOMA Engine Flush",
+        specs: "Avant Vidange",
+        viscosity: "350ml",
+        type: "Traitement",
       },
     ],
   },
@@ -79,15 +119,15 @@ const Services = () => {
             className="max-w-3xl"
           >
             <span className="inline-block px-4 py-2 bg-brand-red/10 text-brand-red text-sm font-bold uppercase tracking-widest rounded-full mb-4 border border-brand-red/20">
-              Nos Services Experts
+              Nos Services & Solutions
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
-              Solutions de <br />
-              <span className="text-brand-gold">Performance</span>
+              Expertise <br />
+              <span className="text-brand-gold">Industrielle</span>
             </h1>
             <p className="text-lg text-white/50 font-light leading-relaxed">
-              Au-delà de la fourniture de lubrifiants, SOMA vous accompagne avec une gamme de services 
-              techniques et logistiques pour maximiser votre efficacité opérationnelle.
+              Découvrez nos solutions complètes de lubrification et services techniques, 
+              conçus pour optimiser la performance de vos équipements professionnels.
             </p>
           </motion.div>
         </div>
@@ -134,28 +174,30 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: srvIndex * 0.1 }}
-                  className="p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-brand-gold/30 transition-all duration-500 group flex flex-col h-full"
+                  className="p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-brand-gold/30 transition-all duration-500 group"
                 >
-                  <h3 className="font-heading text-xl font-bold text-white mb-4 group-hover:text-brand-gold transition-colors">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="px-3 py-1 bg-brand-red/10 text-brand-red text-[10px] font-bold uppercase tracking-wider rounded-full border border-brand-red/20">
+                      {service.type}
+                    </span>
+                    <span className="text-xs text-white/30 font-mono font-bold">
+                      {service.viscosity}
+                    </span>
+                  </div>
+                  <h3 className="font-heading text-xl font-bold text-white mb-3 group-hover:text-brand-gold transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-sm text-white/40 font-light mb-8 flex-grow">
-                    {service.description}
+                  <p className="text-sm text-white/40 font-light mb-8">
+                    {service.specs}
                   </p>
-                  
-                  <div className="space-y-3 mb-8">
-                    {service.features.map((feature, fIndex) => (
-                      <div key={fIndex} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-red" />
-                        <span className="text-[11px] text-white/60 font-medium uppercase tracking-wider">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-3 mt-auto">
-                    <Button variant="outline" size="sm" className="w-full text-xs border-brand-gold/20 text-brand-gold hover:bg-brand-gold hover:text-black rounded-full h-10 transition-all">
+                  <div className="flex items-center gap-3">
+                    <Button variant="ghost" size="sm" className="flex-1 text-xs text-white/60 hover:text-white hover:bg-white/5 border border-white/5 rounded-full h-10">
                       <Info className="w-3.5 h-3.5 mr-2" />
-                      En savoir plus
+                      Détails
+                    </Button>
+                    <Button variant="outline" size="sm" className="flex-1 text-xs border-brand-gold/20 text-brand-gold hover:bg-brand-gold hover:text-black rounded-full h-10 transition-all">
+                      <Download className="w-3.5 h-3.5 mr-2" />
+                      Fiche
                     </Button>
                   </div>
                 </motion.div>
@@ -164,18 +206,6 @@ const Services = () => {
           </div>
         </section>
       ))}
-
-      {/* CTA Section */}
-      <section className="section-padding bg-brand-red">
-        <div className="container-wide text-center">
-          <h2 className="font-heading text-3xl md:text-5xl font-black text-white mb-8 tracking-tighter">
-            Besoin d'une expertise sur mesure ?
-          </h2>
-          <Button variant="secondary" size="lg" className="rounded-full bg-white text-brand-red hover:bg-black hover:text-white transition-all px-12 h-14 font-bold text-lg">
-            Demander un audit gratuit
-          </Button>
-        </div>
-      </section>
     </Layout>
   );
 };

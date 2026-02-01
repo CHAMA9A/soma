@@ -19,7 +19,7 @@ const figures = [
   {
     icon: Package,
     value: "150+",
-    label: "Gammes Produits",
+      label: "Gammes de Services",
     description: "Solutions complètes",
   },
   {

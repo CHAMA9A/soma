@@ -4,11 +4,11 @@ import { Target, Eye, Shield, Award, CheckCircle } from "lucide-react";
 const workshopImage = "https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=80&w=1200";
 
 const values = [
-  {
-    icon: Shield,
-    title: "Qualité Supérieure",
-    description: "Chaque produit répond aux normes internationales les plus strictes, garantissant une performance optimale et une protection moteur absolue.",
-  },
+    {
+      icon: Shield,
+      title: "Qualité Supérieure",
+      description: "Chaque solution répond aux normes internationales les plus strictes, garantissant une performance optimale et une protection moteur absolue.",
+    },
   {
     icon: Target,
     title: "Service Professionnel",
@@ -23,7 +23,7 @@ const values = [
 
 const commitments = [
   "Gestion de la qualité certifiée ISO 9001",
-  "Produits approuvés API et ACEA",
+    "Solutions approuvées API et ACEA",
   "Formulations respectueuses de l'environnement",
   "Support technique et programmes de formation",
   "Chaîne d'approvisionnement et livraison fiables",
@@ -82,11 +82,11 @@ const About = () => {
                   solutions de lubrification complètes, servant des centaines de garages, 
                   d'opérateurs de flottes et de distributeurs.
                 </p>
-                <p>
-                  Notre croissance repose sur une base de produits de qualité, une expertise technique 
-                  et un engagement inébranlable envers le succès de nos partenaires. Aujourd'hui, 
-                  nous proposons plus de 150 gammes de produits couvrant tous les besoins.
-                </p>
+                  <p>
+                    Notre croissance repose sur une base de produits de qualité, une expertise technique 
+                    et un engagement inébranlable envers le succès de nos partenaires. Aujourd'hui, 
+                    nous proposons plus de 150 gammes de services couvrant tous les besoins.
+                  </p>
               </div>
             </motion.div>
             <motion.div
@@ -125,10 +125,10 @@ const About = () => {
             <h2 className="font-heading text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
               Vision & Valeurs
             </h2>
-            <p className="text-lg text-white/40 max-w-2xl mx-auto font-light">
-              Nous nous efforçons d'être le partenaire le plus fiable en lubrification automobile, 
-              offrant l'excellence dans chaque produit et service.
-            </p>
+              <p className="text-lg text-white/40 max-w-2xl mx-auto font-light">
+                Nous nous efforçons d'être le partenaire le plus fiable en lubrification automobile, 
+                offrant l'excellence dans chaque service.
+              </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -173,10 +173,10 @@ const About = () => {
                   Notre Engagement Qualité
                 </h2>
               </div>
-              <p className="text-lg text-white/50 mb-10 font-light leading-relaxed">
-                Chez Soma Lubrifiants, la qualité n'est pas seulement une norme, c'est notre promesse. 
-                Nous nous engageons à fournir des produits qui dépassent les attentes de l'industrie.
-              </p>
+                <p className="text-lg text-white/50 mb-10 font-light leading-relaxed">
+                  Chez Soma Lubrifiants, la qualité n'est pas seulement une norme, c'est notre promesse. 
+                  Nous nous engageons à fournir des solutions qui dépassent les attentes de l'industrie.
+                </p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {commitments.map((item, index) => (
                   <motion.div

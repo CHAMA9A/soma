@@ -43,20 +43,15 @@ const CTASection = () => {
             nous avons les solutions de lubrification adaptées à vos exigences les plus strictes.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Button variant="gold" size="xl" asChild className="rounded-full px-12 group h-14">
-              <a href="tel:+33123456789" className="flex items-center gap-3">
-                <Phone className="w-4 h-4" />
-                <span className="text-base">Nous Appeler</span>
-              </a>
-            </Button>
-            <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-12 h-14">
-              <Link to="/contact" className="flex items-center gap-3">
-                <span>Message Direct</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <Button variant="gold" size="xl" asChild className="rounded-full px-12 group h-14">
+                <Link to="/contact" className="flex items-center gap-3">
+                  <span className="text-base">Demande de Devis</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
+
         </motion.div>
       </div>
     </section>

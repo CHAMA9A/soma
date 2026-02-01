@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const { t } = useTranslation();
-
   return (
     <footer className="bg-[#050505] border-t border-white/5">
       <div className="container-wide py-20">
@@ -25,20 +22,22 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-white/40 leading-relaxed font-light">
-              {t("footer.description")}
+              L'excellence en lubrification automobile. Solutions premium pour professionnels, 
+              portées par une innovation constante depuis plus de 25 ans.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-white tracking-tight mb-6">{t("footer.navigation")}</h4>
+            <h4 className="font-bold text-white tracking-tight mb-6">Navigation</h4>
             <ul className="space-y-3">
                 {[
-                  { name: t("nav.about"), path: "/about" },
-                  { name: t("nav.services"), path: "/services" },
-                  { name: t("nav.activities"), path: "/activities" },
-                  { name: t("nav.projects"), path: "/projects" },
+                  { name: "À Propos", path: "/about" },
+                  { name: "Nos Services", path: "/services" },
+                  { name: "Activités", path: "/activities" },
+                  { name: "Réalisations", path: "/projects" },
                 ].map((link) => (
+
                 <li key={link.path}>
                   <Link
                     to={link.path}
@@ -53,7 +52,7 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h4 className="font-bold text-white tracking-tight mb-6">{t("footer.contact")}</h4>
+              <h4 className="font-bold text-white tracking-tight mb-6">Contact</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-sm text-white/40 font-light">
                   <MapPin className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
@@ -72,20 +71,20 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-white/20 font-medium uppercase tracking-widest">
-            © {new Date().getFullYear()} Soma Lubrifiants. {t("footer.rights")}
+            © {new Date().getFullYear()} Soma Lubrifiants. Tous droits réservés.
           </p>
           <div className="flex items-center gap-8">
             <Link
               to="/legal"
               className="text-xs text-white/20 hover:text-white transition-colors uppercase tracking-widest font-medium"
             >
-              {t("footer.legal")}
+              Mentions Légales
             </Link>
             <Link
               to="/privacy"
               className="text-xs text-white/20 hover:text-white transition-colors uppercase tracking-widest font-medium"
             >
-              {t("footer.privacy")}
+              Confidentialité
             </Link>
           </div>
         </div>

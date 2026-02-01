@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
       {/* Background & Spotlight Effects */}
@@ -28,7 +25,7 @@ const HeroSection = () => {
             className="mb-8"
           >
             <span className="px-5 py-2 border border-brand-gold/30 rounded-full text-[11px] font-bold text-brand-gold uppercase tracking-[0.3em] bg-brand-gold/5 backdrop-blur-sm">
-              {t("hero.badge")}
+              Innovation & Performance
             </span>
           </motion.div>
 
@@ -40,7 +37,7 @@ const HeroSection = () => {
           >
             SOMA <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
-              {t("hero.title").split(" ")[1]}
+              LUBRIFIANTS
             </span>
           </motion.h1>
 
@@ -50,7 +47,8 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-lg md:text-xl text-white/50 max-w-2xl font-light tracking-tight leading-relaxed mb-12"
           >
-            {t("hero.subtitle")}
+            L'excellence technologique au service de la performance automobile. 
+            Découvrez nos solutions de lubrification premium pour une protection absolue.
           </motion.p>
 
             <motion.div
@@ -61,15 +59,16 @@ const HeroSection = () => {
             >
               <Button variant="gold" size="xl" asChild className="px-10 rounded-full group">
                 <Link to="/contact" className="flex items-center gap-3">
-                  <span className="text-base font-bold">{t("hero.cta")}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:rotate-180" />
+                  <span className="text-base font-bold">Demande de Devis</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
                 <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
                   <Link to="/services" className="flex items-center gap-3">
-                    <span>{t("hero.secondary")}</span>
+                    <span>Explorer les Services</span>
                   </Link>
                 </Button>
+
             </motion.div>
         </div>
       </div>
@@ -81,7 +80,7 @@ const HeroSection = () => {
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">{t("hero.discover")}</span>
+        <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">Découvrir</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}

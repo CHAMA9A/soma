@@ -5,61 +5,61 @@ import { useInView } from "framer-motion";
 import { ArrowRight, ShieldCheck, Zap, Droplets } from "lucide-react";
 
 const categories = [
-    {
-      title: "Huiles Moteur",
-      subtitle: "Performance & Protection",
-      description: "Formules synthétiques avancées pour une longévité maximale du moteur.",
-      image: "https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1000",
-      link: "/services#technical-expertise",
-      icon: <Zap className="w-5 h-5" />,
-      gridClass: "md:col-span-2 md:row-span-2",
-    },
-    {
-      title: "Industrie",
-      subtitle: "Fluidité absolue",
-      description: "Solutions de lubrification haute performance pour l'industrie lourde.",
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000",
-      link: "/services#industrial-solutions",
-      icon: <ShieldCheck className="w-5 h-5" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-    },
-    {
-      title: "Analyse",
-      subtitle: "Contrôle thermique",
-      description: "Expertise technique et analyse de fluides en laboratoire.",
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1000",
-      link: "/services#technical-expertise",
-      icon: <Droplets className="w-5 h-5" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-    },
-  ];
+  {
+    title: "Huiles Moteur",
+    subtitle: "Performance & Protection",
+    description: "Formules synthétiques avancées pour une longévité maximale du moteur.",
+    image: "https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1000",
+    link: "/services#engine-oils",
+    icon: <Zap className="w-5 h-5" />,
+    gridClass: "md:col-span-2 md:row-span-2",
+  },
+  {
+    title: "Transmission",
+    subtitle: "Fluidité absolue",
+    description: "Lubrifiants haute performance pour boîtes de vitesses.",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000",
+    link: "/services#transmission-oils",
+    icon: <ShieldCheck className="w-5 h-5" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+  },
+  {
+    title: "Refroidissement",
+    subtitle: "Contrôle thermique",
+    description: "Protection contre la corrosion et régulation optimale.",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000",
+    link: "/services#coolants",
+    icon: <Droplets className="w-5 h-5" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+  },
+];
 
-  const ProductCategories = () => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+const ServiceCategories = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-    return (
-      <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
-        <div className="container-wide relative z-10">
-          {/* Section Header */}
-          <div className="max-w-3xl mb-16">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              className="text-brand-gold font-bold text-[11px] uppercase tracking-[0.3em] block mb-4"
-            >
-              L'Excellence soma
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
-            >
-              Solutions de <br />
-              <span className="text-white/40">Services Premium</span>
-            </motion.h2>
-          </div>
+  return (
+    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+      <div className="container-wide relative z-10">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className="text-brand-gold font-bold text-[11px] uppercase tracking-[0.3em] block mb-4"
+          >
+            L'Excellence soma
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
+          >
+            Solutions de <br />
+            <span className="text-white/40">Services Industriels</span>
+          </motion.h2>
+        </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-6 h-auto md:h-[700px]">
@@ -122,4 +122,4 @@ const categories = [
   );
 };
 
-export default ProductCategories;
+export default ServiceCategories;

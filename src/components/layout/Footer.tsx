@@ -31,12 +31,12 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white tracking-tight mb-6">Navigation</h4>
             <ul className="space-y-3">
-              {[
-                { name: "À Propos", path: "/about" },
-                { name: "Nos Produits", path: "/products" },
-                { name: "Activités", path: "/activities" },
-                { name: "Réalisations", path: "/projects" },
-              ].map((link) => (
+                {[
+                  { name: "À Propos", path: "/about" },
+                  { name: "Nos Services", path: "/services" },
+                  { name: "Activités", path: "/activities" },
+                  { name: "Réalisations", path: "/projects" },
+                ].map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}

@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Activities", path: "/activities" },
-  { name: "Products", path: "/products" },
-  { name: "Projects", path: "/projects" },
+  { name: "Accueil", path: "/" },
+  { name: "À Propos", path: "/about" },
+  { name: "Activités", path: "/activities" },
+  { name: "Services", path: "/services" },
+  { name: "Réalisations", path: "/projects" },
   { name: "Contact", path: "/contact" },
 ];
 

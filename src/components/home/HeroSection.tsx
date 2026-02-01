@@ -63,11 +63,11 @@ const HeroSection = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
-                <Link to="/products" className="flex items-center gap-3">
-                  <span>Explorer les Produits</span>
-                </Link>
-              </Button>
+                <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
+                  <Link to="/services" className="flex items-center gap-3">
+                    <span>Explorer les Services</span>
+                  </Link>
+                </Button>
             </motion.div>
         </div>
       </div>

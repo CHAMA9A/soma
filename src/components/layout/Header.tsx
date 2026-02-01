@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -21,17 +22,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/5">
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-18">
-          {/* Logo */}
-              <Link to="/" className="flex items-center gap-3 group">
-                <div className="w-10 h-10 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <img 
-                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-1-2x-1769964412950.png?width=80&height=80&resize=contain" 
+            {/* Logo */}
+                <Link to="/" className="group">
+                  <Logo size="md" />
+                </Link>
 
-                    alt="SOMA Logo"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2 bg-white/5 px-2 py-1.5 rounded-full border border-white/5">

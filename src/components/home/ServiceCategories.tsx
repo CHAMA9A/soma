@@ -40,6 +40,13 @@ const ServiceCategories = () => {
 
   return (
     <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+      {/* Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(196,30,58,0.05),transparent_50%)]" />
+        <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(184,134,11,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
+      </div>
+
       <div className="container-wide relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">

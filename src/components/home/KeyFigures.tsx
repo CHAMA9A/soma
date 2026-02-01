@@ -35,8 +35,20 @@ const KeyFigures = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-[#0a0a0a]" ref={ref}>
-      <div className="container-wide">
+    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+      {/* Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          style={{ y: isInView ? 0 : 50 }}
+          animate={isInView ? { y: 0, opacity: 0.15 } : { y: 50, opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
+      </div>
+
+      <div className="container-wide relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {figures.map((figure, index) => (
             <motion.div

@@ -110,8 +110,20 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-black">
-        <div className="container-wide">
+      <section className="section-padding bg-black relative overflow-hidden">
+        {/* Background Enhancement */}
+        <div className="absolute inset-0 z-0">
+          <motion.div 
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.15 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
+        </div>
+
+        <div className="container-wide relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,12 +147,22 @@ const Services = () => {
 
       {/* Service Categories */}
       {serviceCategories.map((category, catIndex) => (
-        <section
-          key={category.id}
-          id={category.id}
-          className={`section-padding ${catIndex % 2 === 0 ? "bg-black" : "bg-[#0a0a0a]"}`}
-        >
-          <div className="container-wide">
+          <section
+            key={category.id}
+            id={category.id}
+            className={`section-padding relative overflow-hidden ${catIndex % 2 === 0 ? "bg-black" : "bg-[#0a0a0a]"}`}
+          >
+            {/* Background Enhancement */}
+            <div className="absolute inset-0 z-0">
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
+              {catIndex % 2 === 0 ? (
+                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_20%,rgba(196,30,58,0.02),transparent_60%)]" />
+              ) : (
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(184,134,11,0.02),transparent_60%)]" />
+              )}
+            </div>
+
+            <div className="container-wide relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

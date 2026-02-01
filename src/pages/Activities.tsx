@@ -41,8 +41,20 @@ const Activities = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-black">
-        <div className="container-wide">
+      <section className="section-padding bg-black relative overflow-hidden">
+        {/* Background Enhancement */}
+        <div className="absolute inset-0 z-0">
+          <motion.div 
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.15 }}
+            transition={{ duration: 1.5 }}
+            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
+        </div>
+
+        <div className="container-wide relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,8 +77,15 @@ const Activities = () => {
       </section>
 
       {/* Activities List */}
-      <section className="section-padding bg-[#0a0a0a]">
-        <div className="container-wide space-y-32">
+      <section className="section-padding bg-[#0a0a0a] relative overflow-hidden">
+        {/* Background Enhancement */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_20%,rgba(196,30,58,0.02),transparent_60%)]" />
+          <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(184,134,11,0.02),transparent_60%)]" />
+        </div>
+
+        <div className="container-wide relative z-10 space-y-32">
           {activities.map((activity, index) => (
             <motion.div
               key={index}

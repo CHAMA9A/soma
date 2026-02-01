@@ -11,10 +11,16 @@ const CTASection = () => {
 
   return (
     <section className="section-padding relative overflow-hidden bg-[#0a0a0a]" ref={ref}>
-      {/* Background Decorative Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-red/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[120px]" />
+      {/* Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={isInView ? { scale: 1, opacity: 0.1 } : { scale: 1.1, opacity: 0 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
       </div>
 
       <div className="container-wide relative z-10">

@@ -31,8 +31,19 @@ const ProjectsHighlight = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-[#0a0a0a] overflow-hidden" ref={ref}>
-      <div className="container-wide">
+    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+      {/* Background Enhancement */}
+      <div className="absolute inset-0 z-0">
+        <motion.div 
+          style={{ x: isInView ? 0 : -50 }}
+          animate={isInView ? { x: 0, opacity: 0.1 } : { x: -50, opacity: 0 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+      </div>
+
+      <div className="container-wide relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Image Side */}
           <motion.div

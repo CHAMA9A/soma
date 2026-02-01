@@ -10,7 +10,7 @@ const categories = [
     subtitle: "Performance & Protection",
     description: "Formules synthétiques avancées pour une longévité maximale du moteur.",
     image: "https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1000",
-    link: "/services#engine-oils",
+    link: "/produits#engine-oils",
     icon: <Zap className="w-5 h-5" />,
     gridClass: "md:col-span-2 md:row-span-2",
   },
@@ -19,7 +19,7 @@ const categories = [
     subtitle: "Fluidité absolue",
     description: "Lubrifiants haute performance pour boîtes de vitesses.",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000",
-    link: "/services#transmission-oils",
+    link: "/produits#transmission-oils",
     icon: <ShieldCheck className="w-5 h-5" />,
     gridClass: "md:col-span-1 md:row-span-1",
   },
@@ -28,7 +28,7 @@ const categories = [
     subtitle: "Contrôle thermique",
     description: "Protection contre la corrosion et régulation optimale.",
     image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000",
-    link: "/services#coolants",
+    link: "/produits#coolants",
     icon: <Droplets className="w-5 h-5" />,
     gridClass: "md:col-span-1 md:row-span-1",
   },
@@ -64,7 +64,7 @@ const ServiceCategories = () => {
             className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
           >
             Solutions de <br />
-            <span className="text-white/40">Services Industriels</span>
+            <span className="text-white/40">Produits Premium</span>
           </motion.h2>
         </div>
 

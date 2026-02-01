@@ -106,7 +106,7 @@ const serviceCategories = [
   },
 ];
 
-const Services = () => {
+const Products = () => {
   return (
     <Layout>
       {/* Hero Section */}
@@ -131,15 +131,15 @@ const Services = () => {
             className="max-w-3xl"
           >
             <span className="inline-block px-4 py-2 bg-brand-red/10 text-brand-red text-sm font-bold uppercase tracking-widest rounded-full mb-4 border border-brand-red/20">
-              Nos Services & Solutions
+              Gamme de Produits Premium
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
-              Expertise <br />
-              <span className="text-brand-gold">Industrielle</span>
+              Performance <br />
+              <span className="text-brand-gold">Sans Compromis</span>
             </h1>
             <p className="text-lg text-white/50 font-light leading-relaxed">
-              Découvrez nos solutions complètes de lubrification et services techniques, 
-              conçus pour optimiser la performance de vos équipements professionnels.
+              Découvrez notre catalogue complet de lubrifiants et fluides techniques, 
+              formulés pour répondre aux exigences les plus strictes des constructeurs mondiaux.
             </p>
           </motion.div>
         </div>
@@ -232,4 +232,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Products;

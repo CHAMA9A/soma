@@ -22,19 +22,23 @@ const Header = () => {
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-heading font-black text-xl">S</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-lg md:text-xl font-black text-white tracking-tighter leading-none">
-                SOMA
-              </span>
-              <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
-                Lubrifiants
-              </span>
-            </div>
-          </Link>
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <img 
+                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-2-2x-1769964414137.png?width=80&height=80&resize=contain" 
+                  alt="SOMA Logo"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-heading text-lg md:text-xl font-black text-white tracking-tighter leading-none">
+                  SOMA
+                </span>
+                <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
+                  Lubrifiants
+                </span>
+              </div>
+            </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2 bg-white/5 px-2 py-1.5 rounded-full border border-white/5">

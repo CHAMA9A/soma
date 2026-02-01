@@ -25,7 +25,8 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <img 
-                  src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-2-2x-1769964414137.png?width=80&height=80&resize=contain" 
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-1-2x-1769964412950.png?width=80&height=80&resize=contain" 
+
                   alt="SOMA Logo"
                   className="w-full h-full object-contain"
                 />

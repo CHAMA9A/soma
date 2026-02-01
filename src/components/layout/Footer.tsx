@@ -49,50 +49,23 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="font-bold text-white tracking-tight mb-6">Contact</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-sm text-white/40 font-light">
-                <MapPin className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
-                <span>Zone Industrielle, Secteur Automobile, 75000 Paris, France</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/40 font-light">
-                <Phone className="w-4 h-4 text-brand-red flex-shrink-0" />
-                <a href="tel:+33123456789" className="hover:text-brand-gold transition-colors">
-                  +33 1 23 45 67 89
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/40 font-light">
-                <Mail className="w-4 h-4 text-brand-red flex-shrink-0" />
-                <a href="mailto:contact@soma-lubrifiants.com" className="hover:text-brand-gold transition-colors">
-                  contact@soma-lubrifiants.com
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h4 className="font-bold text-white tracking-tight mb-6">Réseaux Sociaux</h4>
-            <div className="flex gap-4">
-              {[
-                { icon: Facebook, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:bg-brand-red/10 hover:text-brand-red hover:border-brand-red/20 transition-all duration-300"
-                  aria-label="Social link"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+            {/* Contact Info */}
+            <div>
+              <h4 className="font-bold text-white tracking-tight mb-6">Contact</h4>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-sm text-white/40 font-light">
+                  <MapPin className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
+                  <span>Zone Industrielle, Secteur Automobile, 75000 Paris, France</span>
+                </li>
+                <li className="flex items-center gap-3 text-sm text-white/40 font-light">
+                  <Mail className="w-4 h-4 text-brand-red flex-shrink-0" />
+                  <a href="mailto:contact@soma-lubrifiants.com" className="hover:text-brand-gold transition-colors">
+                    contact@soma-lubrifiants.com
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
 
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">

@@ -10,7 +10,6 @@ const navLinks = [
   { name: "Activities", path: "/activities" },
   { name: "Products", path: "/products" },
   { name: "Projects", path: "/projects" },
-  { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -57,10 +56,9 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <Button variant="gold" size="sm" asChild className="px-6 h-9 rounded-full">
-              <a href="tel:+33123456789" className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5" />
-                <span>Contact</span>
-              </a>
+              <Link to="/contact">
+                <span>Demande de Devis</span>
+              </Link>
             </Button>
           </div>
 
@@ -99,11 +97,10 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="hero" size="lg" className="mt-4" asChild>
-                <a href="tel:+33123456789" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  Call Now
-                </a>
+              <Button variant="gold" size="lg" className="mt-4" asChild>
+                <Link to="/contact">
+                  Demande de Devis
+                </Link>
               </Button>
             </nav>
           </motion.div>

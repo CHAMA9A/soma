@@ -51,22 +51,24 @@ const HeroSection = () => {
             Découvrez nos solutions de lubrification premium pour une protection absolue.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-6 items-center"
-          >
-            <Button variant="gold" size="xl" asChild className="px-10 rounded-full group">
-              <Link to="/products" className="flex items-center gap-3">
-                <span className="text-base">Nos Gammes</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
-              <Link to="/contact">Expertise Technique</Link>
-            </Button>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="flex flex-col sm:flex-row gap-6 items-center"
+            >
+              <Button variant="gold" size="xl" asChild className="px-10 rounded-full group">
+                <Link to="/contact" className="flex items-center gap-3">
+                  <span className="text-base font-bold">Demande de Devis</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
+                <Link to="/products" className="flex items-center gap-3">
+                  <span>Explorer les Produits</span>
+                </Link>
+              </Button>
+            </motion.div>
         </div>
       </div>
 

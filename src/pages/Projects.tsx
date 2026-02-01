@@ -6,39 +6,39 @@ const workshopImage = "https://images.unsplash.com/photo-1504222490345-c075b6008
 const projects = [
   {
     icon: Truck,
-    title: "National Fleet Partnership",
-    description: "Complete lubrication management for a logistics company with 250+ vehicles. Providing scheduled deliveries, product recommendations, and cost optimization.",
-    status: "Ongoing",
-    location: "Nationwide",
-    year: "2023-Present",
-    metrics: ["250+ Vehicles", "12 Depots", "30% Cost Reduction"],
+    title: "Partenariat Flotte Nationale",
+    description: "Gestion complète de la lubrification pour une entreprise de logistique de plus de 250 véhicules. Livraison programmée et optimisation des coûts.",
+    status: "En cours",
+    location: "France entière",
+    year: "2023-Présent",
+    metrics: ["250+ Véhicules", "12 Dépôts", "-30% Coûts"],
   },
   {
     icon: Building2,
-    title: "Workshop Network Program",
-    description: "Exclusive supplier agreement with a network of 75 independent automotive workshops, providing premium products and technical training.",
-    status: "Active",
-    location: "Regional",
-    year: "2022-Present",
-    metrics: ["75 Workshops", "150+ Technicians Trained", "Premium Partner"],
+    title: "Réseau d'Ateliers Premium",
+    description: "Accord de fourniture exclusive avec un réseau de 75 ateliers indépendants, incluant produits premium et formation technique.",
+    status: "Actif",
+    location: "Régional",
+    year: "2022-Présent",
+    metrics: ["75 Ateliers", "150+ Techniciens", "Partenaire Or"],
   },
   {
     icon: Wrench,
-    title: "OEM Service Center Supply",
-    description: "Official lubricant supplier for authorized service centers, meeting strict OEM specifications and quality requirements.",
-    status: "Active",
-    location: "Multi-City",
-    year: "2021-Present",
-    metrics: ["15 Service Centers", "OEM Certified", "Premium Grade"],
+    title: "Centres de Service OEM",
+    description: "Fournisseur officiel pour les centres de service agréés, répondant aux spécifications OEM les plus strictes.",
+    status: "Actif",
+    location: "Multi-villes",
+    year: "2021-Présent",
+    metrics: ["15 Centres", "Certifié OEM", "Grade Premium"],
   },
   {
     icon: Users,
-    title: "Taxi Fleet Program",
-    description: "Customized lubrication program for urban taxi fleets, optimizing maintenance schedules and reducing vehicle downtime.",
-    status: "Ongoing",
-    location: "Metropolitan",
+    title: "Programme Flotte Taxis",
+    description: "Programme de lubrification sur mesure pour flottes de taxis urbains, optimisant les cycles de maintenance.",
+    status: "En cours",
+    location: "Métropole",
     year: "2024",
-    metrics: ["180 Taxis", "Extended Intervals", "24/7 Support"],
+    metrics: ["180 Taxis", "Intervalles Prolongés", "Support 24/7"],
   },
 ];
 
@@ -46,22 +46,22 @@ const partnerships = [
   {
     type: "Garages",
     count: "200+",
-    description: "Independent workshops and repair shops",
+    description: "Ateliers indépendants et centres de réparation",
   },
   {
-    type: "Fleets",
+    type: "Flottes",
     count: "50+",
-    description: "Commercial and logistics operators",
+    description: "Opérateurs logistiques et commerciaux",
   },
   {
-    type: "Distributors",
+    type: "Distributeurs",
     count: "25+",
-    description: "Regional distribution partners",
+    description: "Partenaires de distribution régionale",
   },
   {
-    type: "OEM Centers",
+    type: "Centres OEM",
     count: "15+",
-    description: "Authorized service centers",
+    description: "Centres de service après-vente agréés",
   },
 ];
 
@@ -69,7 +69,7 @@ const Projects = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-black">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,25 +77,25 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold uppercase tracking-wider rounded-full mb-4">
-              Projects & Partnerships
+            <span className="inline-block px-4 py-2 bg-brand-red/10 text-brand-red text-sm font-bold uppercase tracking-widest rounded-full mb-4 border border-brand-red/20">
+              Réalisations & Partenariats
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Success{" "}
-              <span className="text-primary">Stories</span>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
+              Nos Success <br />
+              <span className="text-brand-gold">Stories</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Discover how we partner with automotive professionals to deliver 
-              tailored lubrication solutions that drive business success.
+            <p className="text-lg text-white/50 font-light leading-relaxed">
+              Découvrez comment nous accompagnons les professionnels de l'automobile avec 
+              des solutions de lubrification sur mesure qui boostent leur performance.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Partnership Stats */}
-      <section className="section-padding">
+      <section className="section-padding bg-[#0a0a0a]">
         <div className="container-wide">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {partnerships.map((partner, index) => (
               <motion.div
                 key={index}
@@ -103,13 +103,13 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-card border border-border text-center"
+                className="p-10 rounded-3xl bg-white/5 border border-white/5 text-center group hover:border-brand-gold/30 transition-all duration-500"
               >
-                <div className="font-heading text-4xl md:text-5xl font-bold text-primary mb-2">
+                <div className="font-heading text-4xl md:text-6xl font-black text-brand-red mb-4 group-hover:scale-110 transition-transform duration-500">
                   {partner.count}
                 </div>
-                <div className="font-semibold text-foreground mb-1">{partner.type}</div>
-                <div className="text-sm text-muted-foreground">{partner.description}</div>
+                <div className="font-bold text-white mb-2 uppercase tracking-widest text-xs">{partner.type}</div>
+                <div className="text-sm text-white/40 font-light">{partner.description}</div>
               </motion.div>
             ))}
           </div>
@@ -117,19 +117,19 @@ const Projects = () => {
       </section>
 
       {/* Project Cards */}
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-black">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Projects
+            <h2 className="font-heading text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+              Projets Phares
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real partnerships delivering real results for automotive businesses.
+            <p className="text-lg text-white/40 max-w-2xl mx-auto font-light">
+              Des partenariats concrets délivrant des résultats tangibles pour nos clients.
             </p>
           </motion.div>
 
@@ -141,42 +141,42 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-8 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300"
+                className="p-10 rounded-3xl bg-white/5 border border-white/5 hover:border-brand-gold/30 transition-all duration-500 group"
               >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <project.icon className="w-7 h-7 text-primary" />
+                <div className="flex items-start gap-6 mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+                    <project.icon className="w-8 h-8 text-brand-red" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-heading text-xl font-bold text-foreground">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="font-heading text-2xl font-bold text-white">
                         {project.title}
                       </h3>
                     </div>
-                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                    <span className="inline-block px-3 py-1 bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-wider rounded-full border border-brand-gold/20">
                       {project.status}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground mb-6">{project.description}</p>
+                <p className="text-white/40 font-light leading-relaxed mb-8">{project.description}</p>
 
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                  <div className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
+                <div className="flex items-center gap-6 text-sm text-white/30 mb-8 font-medium italic">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-brand-red" />
                     {project.location}
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-brand-red" />
                     {project.year}
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.metrics.map((metric, mIndex) => (
                     <span
                       key={mIndex}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-lg"
+                      className="px-4 py-2 bg-white/5 text-brand-gold text-xs font-bold rounded-xl border border-white/5"
                     >
                       {metric}
                     </span>
@@ -188,30 +188,28 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="section-padding">
+      {/* CTA Section Image */}
+      <section className="section-padding bg-[#050505]">
         <div className="container-wide">
-          <div className="relative rounded-2xl overflow-hidden">
+          <div className="relative rounded-[40px] overflow-hidden border border-white/5 group">
             <img
               src={workshopImage}
-              alt="Professional automotive workshop"
-              className="w-full h-96 object-cover"
+              alt="Atelier Professionnel"
+              className="w-full h-[500px] object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent flex items-center">
-              <div className="p-8 md:p-12 max-w-lg">
-                <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Partner With Us
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent flex items-center">
+              <div className="p-12 md:p-20 max-w-2xl">
+                <h2 className="font-heading text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
+                  Devenez <br />
+                  <span className="text-brand-gold">Partenaire</span>
                 </h2>
-                <p className="text-muted-foreground mb-6">
-                  Join our growing network of successful automotive businesses. 
-                  Let's discuss how we can support your lubrication needs.
+                <p className="text-lg text-white/50 mb-10 font-light leading-relaxed">
+                  Rejoignez notre réseau croissant de professionnels de l'automobile. 
+                  Discutons ensemble de vos besoins spécifiques en lubrification.
                 </p>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
-                >
-                  Start Partnership
-                </a>
+                <Button variant="gold" size="xl" asChild className="px-12 rounded-full">
+                  <Link to="/contact">Démarrer un Partenariat</Link>
+                </Button>
               </div>
             </div>
           </div>

@@ -9,35 +9,29 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  phone: z.string().trim().max(20, "Phone must be less than 20 characters").optional(),
-  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+  name: z.string().trim().min(1, "Le nom est requis").max(100, "Le nom doit faire moins de 100 caractères"),
+  email: z.string().trim().email("Adresse email invalide").max(255, "L'email doit faire moins de 255 caractères"),
+  subject: z.string().trim().max(100, "Le sujet doit faire moins de 100 caractères").optional(),
+  message: z.string().trim().min(1, "Le message est requis").max(1000, "Le message doit faire moins de 1000 caractères"),
 });
 
 const contactInfo = [
   {
-    icon: Phone,
-    title: "Call Us",
-    content: "+33 1 23 45 67 89",
-    href: "tel:+33123456789",
-  },
-  {
     icon: Mail,
-    title: "Email Us",
+    title: "Email",
     content: "contact@soma-lubrifiants.com",
     href: "mailto:contact@soma-lubrifiants.com",
   },
   {
     icon: MapPin,
-    title: "Visit Us",
-    content: "123 Industrial Zone, Automotive District, 75000 Paris, France",
+    title: "Localisation",
+    content: "Zone Industrielle, Secteur Automobile, 75000 Paris, France",
     href: "#map",
   },
   {
     icon: Clock,
-    title: "Business Hours",
-    content: "Mon - Fri: 8:00 AM - 6:00 PM",
+    title: "Horaires",
+    content: "Lun - Ven: 8:00 - 18:00",
     href: null,
   },
 ];
@@ -47,7 +41,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
+    subject: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -58,7 +52,6 @@ const Contact = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -70,17 +63,16 @@ const Contact = () => {
     setErrors({});
 
     try {
-      const validatedData = contactSchema.parse(formData);
+      contactSchema.parse(formData);
       
-      // Simulate form submission
       await new Promise((resolve) => setTimeout(resolve, 1000));
       
       toast({
-        title: "Message Sent!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
+        title: "Message Envoyé !",
+        description: "Merci de nous avoir contactés. Nous vous répondrons très prochainement.",
       });
       
-      setFormData({ name: "", email: "", phone: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Record<string, string> = {};
@@ -92,8 +84,8 @@ const Contact = () => {
         setErrors(fieldErrors);
       } else {
         toast({
-          title: "Error",
-          description: "Something went wrong. Please try again.",
+          title: "Erreur",
+          description: "Une erreur est survenue. Veuillez réessayer.",
           variant: "destructive",
         });
       }
@@ -105,7 +97,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-card">
+      <section className="section-padding bg-black">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -113,25 +105,25 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold uppercase tracking-wider rounded-full mb-4">
-              Contact Us
+            <span className="inline-block px-4 py-2 bg-brand-red/10 text-brand-red text-sm font-bold uppercase tracking-widest rounded-full mb-4 border border-brand-red/20">
+              Contactez-nous
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Get In{" "}
-              <span className="text-primary">Touch</span>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
+              Parlons de vos <br />
+              <span className="text-brand-gold">Projets</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Have questions about our products or interested in becoming a partner? 
-              We're here to help. Reach out to us today.
+            <p className="text-lg text-white/50 font-light leading-relaxed">
+              Vous avez des questions sur nos produits ou vous souhaitez devenir partenaire ? 
+              Notre équipe d'experts est à votre écoute pour vous accompagner.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 border-b border-border">
+      <section className="py-20 bg-[#0a0a0a] border-b border-white/5">
         <div className="container-wide">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
@@ -139,25 +131,23 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                className="p-10 rounded-3xl bg-white/5 border border-white/5 hover:border-brand-gold/30 transition-all duration-500 group"
               >
                 {info.href ? (
-                  <a
-                    href={info.href}
-                    className="block p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="w-6 h-6 text-primary" />
+                  <a href={info.href} className="block">
+                    <div className="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                      <info.icon className="w-8 h-8 text-brand-red" />
                     </div>
-                    <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                    <p className="text-sm text-muted-foreground">{info.content}</p>
+                    <h3 className="font-heading text-xl font-bold text-white mb-2">{info.title}</h3>
+                    <p className="text-white/40 font-light">{info.content}</p>
                   </a>
                 ) : (
-                  <div className="p-6 rounded-2xl bg-card border border-border">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                      <info.icon className="w-6 h-6 text-primary" />
+                  <div>
+                    <div className="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center mb-8">
+                      <info.icon className="w-8 h-8 text-brand-red" />
                     </div>
-                    <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                    <p className="text-sm text-muted-foreground">{info.content}</p>
+                    <h3 className="font-heading text-xl font-bold text-white mb-2">{info.title}</h3>
+                    <p className="text-white/40 font-light">{info.content}</p>
                   </div>
                 )}
               </motion.div>
@@ -167,44 +157,43 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="section-padding">
+      <section className="section-padding bg-black">
         <div className="container-wide">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-2 gap-20">
             {/* Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-heading text-3xl font-bold text-foreground mb-2">
-                Send Us a Message
+              <h2 className="font-heading text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
+                Envoyez un Message
               </h2>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form below and we'll get back to you within 24 hours.
+              <p className="text-lg text-white/40 mb-12 font-light">
+                Remplissez le formulaire ci-dessous et nous vous répondrons sous 24h.
               </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    className={errors.name ? "border-destructive" : ""}
-                  />
-                  {errors.name && (
-                    <p className="text-sm text-destructive mt-1">{errors.name}</p>
-                  )}
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address *
+  
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-xs font-bold text-white/60 uppercase tracking-widest ml-4">
+                      Nom Complet *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Jean Dupont"
+                      className={`h-14 rounded-2xl bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-brand-red/50 transition-all ${errors.name ? "border-brand-red" : ""}`}
+                    />
+                    {errors.name && (
+                      <p className="text-xs text-brand-red font-bold mt-2 ml-4">{errors.name}</p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-xs font-bold text-white/60 uppercase tracking-widest ml-4">
+                      Adresse Email *
                     </label>
                     <Input
                       id="email"
@@ -212,96 +201,99 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
-                      className={errors.email ? "border-destructive" : ""}
+                      placeholder="jean@exemple.com"
+                      className={`h-14 rounded-2xl bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-brand-red/50 transition-all ${errors.email ? "border-brand-red" : ""}`}
                     />
                     {errors.email && (
-                      <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                      <p className="text-xs text-brand-red font-bold mt-2 ml-4">{errors.email}</p>
                     )}
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+33 1 23 45 67 89"
-                    />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-xs font-bold text-white/60 uppercase tracking-widest ml-4">
+                    Sujet
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Demande de devis / Information produit"
+                    className="h-14 rounded-2xl bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-brand-red/50 transition-all"
+                  />
+                </div>
+  
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-xs font-bold text-white/60 uppercase tracking-widest ml-4">
+                    Votre Message *
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your needs..."
-                    rows={5}
-                    className={errors.message ? "border-destructive" : ""}
+                    placeholder="Comment pouvons-nous vous aider ?"
+                    rows={6}
+                    className={`rounded-3xl bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-brand-red/50 transition-all min-h-[150px] ${errors.message ? "border-brand-red" : ""}`}
                   />
                   {errors.message && (
-                    <p className="text-sm text-destructive mt-1">{errors.message}</p>
+                    <p className="text-xs text-brand-red font-bold mt-2 ml-4">{errors.message}</p>
                   )}
                 </div>
-
+  
                 <Button
                   type="submit"
-                  variant="cta"
-                  size="lg"
-                  className="w-full sm:w-auto"
+                  variant="gold"
+                  size="xl"
+                  className="w-full px-12 rounded-full font-bold text-base"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    "Envoi en cours..."
                   ) : (
                     <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      <Send className="w-5 h-5 mr-3" />
+                      Envoyer le Message
                     </>
                   )}
                 </Button>
               </form>
             </motion.div>
-
-            {/* Call Now + Map */}
+  
+            {/* Call Action + Map */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-12"
             >
-              {/* Call Now Card */}
-              <div className="p-8 rounded-2xl bg-primary text-primary-foreground">
-                <Phone className="w-10 h-10 mb-4" />
-                <h3 className="font-heading text-2xl font-bold mb-2">
-                  Prefer to Talk?
-                </h3>
-                <p className="text-primary-foreground/80 mb-6">
-                  Call us directly and speak with our team about your requirements.
-                </p>
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                  asChild
-                >
-                  <a href="tel:+33123456789" className="flex items-center gap-2">
-                    <Phone className="w-5 h-5" />
-                    +33 1 23 45 67 89
-                  </a>
-                </Button>
+              <div className="p-12 rounded-[40px] bg-brand-red text-white shadow-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-white/20 transition-all duration-700" />
+                <div className="relative z-10">
+                  <Mail className="w-16 h-16 mb-8 text-white/40" />
+                  <h3 className="font-heading text-4xl font-black mb-4 tracking-tighter">
+                    Expertise Directe
+                  </h3>
+                  <p className="text-lg text-white/80 mb-10 font-medium">
+                    Envoyez-nous un email pour une réponse personnalisée sous 24h.
+                  </p>
+                  <Button
+                    variant="premium"
+                    size="xl"
+                    className="bg-white text-brand-red hover:bg-white/90 px-10 shadow-xl"
+                    asChild
+                  >
+                    <a href="mailto:contact@soma-lubrifiants.com" className="flex items-center gap-3">
+                      <Send className="w-5 h-5" />
+                      Nous Contacter
+                    </a>
+                  </Button>
+                </div>
               </div>
-
+  
               {/* Map Placeholder */}
-              <div id="map" className="rounded-2xl overflow-hidden border border-border h-80">
+              <div id="map" className="rounded-[40px] overflow-hidden border border-white/5 h-96 relative group">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937604!2d2.292292615509614!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sEiffel%20Tower!5e0!3m2!1sen!2sfr!4v1634567890123!5m2!1sen!2sfr"
                   width="100%"
@@ -311,7 +303,9 @@ const Contact = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Soma Lubrifiants Location"
+                  className="grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
                 />
+                <div className="absolute inset-0 pointer-events-none border border-white/10 rounded-[40px]" />
               </div>
             </motion.div>
           </div>

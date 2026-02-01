@@ -8,24 +8,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 relative flex items-center justify-center">
-                  <img 
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-1-2x-1769964412950.png?width=80&height=80&resize=contain" 
-                    alt="SOMA Logo"
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 relative flex items-center justify-center">
+                    <img 
+                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Asset-1-2x-1769964412950.png?width=80&height=80&resize=contain" 
+                      alt="SOMA Logo"
 
-                  className="w-full h-full object-contain"
-                />
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-black text-white tracking-tighter leading-none">
-                  SOMA
-                </span>
-                <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
-                  Lubrifiants
-                </span>
-              </div>
-            </div>
             <p className="text-sm text-white/40 leading-relaxed font-light">
               L'excellence en lubrification automobile. Solutions premium pour professionnels, 
               portées par une innovation constante depuis plus de 25 ans.

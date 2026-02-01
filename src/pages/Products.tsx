@@ -2,9 +2,9 @@ import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Download, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import productEngineOil from "@/assets/product-engine-oil.jpg";
-import productTransmissionOil from "@/assets/product-transmission-oil.jpg";
-import productCoolants from "@/assets/product-coolants.jpg";
+const productEngineOil = "https://images.unsplash.com/photo-1635810230588-403d1547432d?auto=format&fit=crop&q=80&w=800";
+const productTransmissionOil = "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800";
+const productCoolants = "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800";
 
 const productCategories = [
   {

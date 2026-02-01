@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Target, Eye, Shield, Award, CheckCircle } from "lucide-react";
-import workshopImage from "@/assets/workshop.jpg";
+const workshopImage = "https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=80&w=1200";
 
 const values = [
   {

@@ -2,11 +2,11 @@ import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
-import productEngineOil from "@/assets/product-engine-oil.jpg";
-import productTransmissionOil from "@/assets/product-transmission-oil.jpg";
-import productCoolants from "@/assets/product-coolants.jpg";
-import workshopImage from "@/assets/workshop.jpg";
-import heroImage from "@/assets/hero-lubricants.jpg";
+const productEngineOil = "https://images.unsplash.com/photo-1635810230588-403d1547432d?auto=format&fit=crop&q=80&w=800";
+const productTransmissionOil = "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&q=80&w=800";
+const productCoolants = "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800";
+const workshopImage = "https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&q=80&w=1200";
+const heroImage = "https://images.unsplash.com/photo-1486006396193-471a2abc881e?auto=format&fit=crop&q=80&w=2000";
 
 const galleryItems = [
   {

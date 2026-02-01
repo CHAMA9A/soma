@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-lubricants.jpg";
+const heroImage = "https://images.unsplash.com/photo-1486006396193-471a2abc881e?auto=format&fit=crop&q=80&w=2000";
 
 const HeroSection = () => {
   return (

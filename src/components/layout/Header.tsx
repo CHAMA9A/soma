@@ -15,7 +15,6 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-import { ThemeToggle } from "./ThemeToggle";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,7 +49,6 @@ const Header = () => {
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
             <Button variant="gold" size="sm" asChild className="px-6 h-9 rounded-full">
               <Link to="/contact">
                 <span>Demande de Devis</span>
@@ -60,7 +58,6 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-foreground"

@@ -15,12 +15,14 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+import { ThemeToggle } from "./ThemeToggle";
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border">
       <div className="container-wide">
         <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
@@ -30,15 +32,15 @@ const Header = () => {
 
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 bg-white/5 px-2 py-1.5 rounded-full border border-white/5">
+          <nav className="hidden lg:flex items-center gap-2 bg-secondary/50 px-2 py-1.5 rounded-full border border-border">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-1.5 text-[13px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
                   location.pathname === link.path
-                    ? "text-white bg-white/10"
-                    : "text-white/60 hover:text-white hover:bg-white/5"
+                    ? "text-foreground bg-accent"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 }`}
               >
                 {link.name}
@@ -46,8 +48,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Button variant="gold" size="sm" asChild className="px-6 h-9 rounded-full">
               <Link to="/contact">
                 <span>Demande de Devis</span>
@@ -56,13 +59,16 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 

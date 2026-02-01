@@ -39,7 +39,7 @@ const ServiceCategories = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+    <section className="section-padding bg-background relative overflow-hidden" ref={ref}>
       {/* Background Enhancement */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(196,30,58,0.05),transparent_50%)]" />
@@ -61,10 +61,10 @@ const ServiceCategories = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
+            className="text-4xl md:text-6xl font-black text-foreground tracking-tighter mb-6"
           >
             Solutions de <br />
-            <span className="text-white/40">Produits Premium</span>
+            <span className="text-foreground/40">Produits Premium</span>
           </motion.h2>
         </div>
 
@@ -76,7 +76,7 @@ const ServiceCategories = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
-              className={`${cat.gridClass} group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10`}
+              className={`${cat.gridClass} group relative rounded-3xl overflow-hidden bg-secondary/50 border border-border`}
             >
               {/* Image with Zoom effect */}
               <div className="absolute inset-0 z-0">
@@ -85,7 +85,7 @@ const ServiceCategories = () => {
                   alt={cat.title}
                   className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
               </div>
 
               {/* Content Overlay */}
@@ -99,17 +99,17 @@ const ServiceCategories = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">
+                <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight mb-3">
                   {cat.title}
                 </h3>
                 
-                <p className="text-white/60 text-sm md:text-base max-w-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                <p className="text-muted-foreground text-sm md:text-base max-w-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                   {cat.description}
                 </p>
 
                 <Link
                   to={cat.link}
-                  className="inline-flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest group/link"
+                  className="inline-flex items-center gap-2 text-foreground font-bold text-xs uppercase tracking-widest group/link"
                 >
                   Découvrir
                   <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform text-brand-red" />
@@ -117,7 +117,7 @@ const ServiceCategories = () => {
               </div>
 
               {/* Glassmorphism Border Highlight */}
-              <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 rounded-3xl transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 border border-white/0 group-hover:border-foreground/10 rounded-3xl transition-colors duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </div>

@@ -35,7 +35,7 @@ const KeyFigures = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+    <section className="section-padding bg-background relative overflow-hidden" ref={ref}>
       {/* Background Enhancement */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -44,7 +44,7 @@ const KeyFigures = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/90 to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
       </div>
 
@@ -56,16 +56,16 @@ const KeyFigures = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:border-brand-gold/20 transition-all duration-500 group overflow-hidden"
+              className="relative p-8 rounded-[2rem] bg-secondary/50 border border-border hover:border-brand-gold/20 transition-all duration-500 group overflow-hidden"
             >
               {/* Subtle background glow */}
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-gold/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-red/10 transition-colors duration-500">
-                <figure.icon className="w-5 h-5 text-white/40 group-hover:text-brand-red transition-colors duration-500" />
+              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center mb-6 group-hover:bg-brand-red/10 transition-colors duration-500">
+                <figure.icon className="w-5 h-5 text-muted-foreground group-hover:text-brand-red transition-colors duration-500" />
               </div>
 
-              <div className="font-heading text-5xl md:text-6xl font-black text-white tracking-tighter mb-2">
+              <div className="font-heading text-5xl md:text-6xl font-black text-foreground tracking-tighter mb-2">
                 {figure.value}
               </div>
               
@@ -73,7 +73,7 @@ const KeyFigures = () => {
                 {figure.label}
               </div>
               
-              <div className="text-sm text-white/40 font-light tracking-tight">
+              <div className="text-sm text-muted-foreground font-light tracking-tight">
                 {figure.description}
               </div>
 

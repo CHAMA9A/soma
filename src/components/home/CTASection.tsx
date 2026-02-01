@@ -10,7 +10,7 @@ const CTASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding relative overflow-hidden bg-[#0a0a0a]" ref={ref}>
+    <section className="section-padding relative overflow-hidden bg-background" ref={ref}>
       {/* Background Enhancement */}
       <div className="absolute inset-0 z-0">
         <motion.div 
@@ -19,7 +19,7 @@ const CTASection = () => {
           transition={{ duration: 2, ease: "easeOut" }}
           className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale mix-blend-luminosity"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
       </div>
 
@@ -28,7 +28,7 @@ const CTASection = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto text-center py-20 px-8 rounded-[3rem] bg-white/5 border border-white/10 backdrop-blur-sm"
+          className="max-w-4xl mx-auto text-center py-20 px-8 rounded-[3rem] bg-secondary/50 border border-border backdrop-blur-sm"
         >
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -39,12 +39,12 @@ const CTASection = () => {
             Prêt à passer au niveau supérieur ?
           </motion.span>
           
-          <h2 className="font-heading text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 leading-[1.1]">
+          <h2 className="font-heading text-4xl md:text-6xl font-black text-foreground tracking-tighter mb-8 leading-[1.1]">
             Optimisons Ensemble <br />
-            <span className="text-white/40">Vos Performances.</span>
+            <span className="text-foreground/40">Vos Performances.</span>
           </h2>
           
-          <p className="text-lg text-white/50 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto font-light leading-relaxed">
             Que vous soyez propriétaire de garage, gestionnaire de flotte ou distributeur, 
             nous avons les solutions de lubrification adaptées à vos exigences les plus strictes.
           </p>

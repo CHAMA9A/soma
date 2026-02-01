@@ -6,15 +6,15 @@
 
 @layer base {
   :root {
-    /* Professional Light Palette */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    /* Professional Light Palette - Active & Clear */
+    --background: 0 0% 97%; /* Soft off-white for less "stark" look */
+    --foreground: 240 5% 11%; /* Brand Black #1d1d1b */
 
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 5% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 240 5% 11%;
 
     /* Brand Red - #e4221a */
     --primary: 2 79% 50%;
@@ -23,20 +23,20 @@
     /* Brand Gold - #efa53a */
     --gold: 36 86% 58%;
     
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 0 0% 91%;
+    --secondary-foreground: 240 5% 11%;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 240 5% 40%;
 
-    --accent: 0 0% 90%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 36 86% 58%; /* Use gold as accent in light mode for "active" feel */
+    --accent-foreground: 240 5% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
+    --border: 0 0% 86%;
+    --input: 0 0% 94%;
     --ring: 2 79% 50%;
 
     --radius: 0.75rem;
@@ -45,9 +45,9 @@
     --gradient-brand: linear-gradient(135deg, #e4221a 0%, #a31812 100%);
     --gradient-gold: linear-gradient(135deg, #efa53a 0%, #c1812a 100%);
     --gradient-dark: linear-gradient(180deg, #1d1d1b 0%, #000000 100%);
-    --shadow-lux: 0 10px 30px rgba(0, 0, 0, 0.05);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(0, 0, 0, 0.05);
+    --shadow-lux: 0 10px 40px rgba(0, 0, 0, 0.06);
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(228, 34, 26, 0.15); /* Subtile red border for glass */
 
     /* Typography - San-Serif Modern */
     --font-heading: 'Inter', sans-serif;

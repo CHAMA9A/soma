@@ -31,22 +31,22 @@ const Header = () => {
                 </Link>
 
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 bg-secondary/50 px-2 py-1.5 rounded-full border border-border">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-1.5 text-[13px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
-                  location.pathname === link.path
-                    ? "text-foreground bg-accent"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-2 bg-secondary/80 dark:bg-secondary/50 px-2 py-1.5 rounded-full border border-border shadow-sm">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-1.5 text-[13px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
+                    location.pathname === link.path
+                      ? "text-primary-foreground bg-primary shadow-md"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-3">

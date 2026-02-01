@@ -57,47 +57,47 @@ const ServiceCategories = () => {
           >
             L'Excellence soma
           </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black text-foreground tracking-tighter mb-6"
-          >
-            Solutions de <br />
-            <span className="text-foreground/40">Produits Premium</span>
-          </motion.h2>
-        </div>
-
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-6 h-auto md:h-[700px]">
-          {categories.map((cat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
-              className={`${cat.gridClass} group relative rounded-3xl overflow-hidden bg-secondary/50 border border-border`}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-6xl font-black text-foreground tracking-tighter mb-6"
             >
-              {/* Image with Zoom effect */}
-              <div className="absolute inset-0 z-0">
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              </div>
+              Solutions de <br />
+              <span className="text-primary">Produits Premium</span>
+            </motion.h2>
+          </div>
 
-              {/* Content Overlay */}
-              <div className="relative z-10 h-full p-8 flex flex-col justify-end">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-red/20 backdrop-blur-md flex items-center justify-center text-brand-red border border-brand-red/30">
-                    {cat.icon}
-                  </div>
-                  <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest">
-                    {cat.subtitle}
-                  </span>
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-6 h-auto md:h-[700px]">
+            {categories.map((cat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
+                className={`${cat.gridClass} group relative rounded-3xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-500`}
+              >
+                {/* Image with Zoom effect */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className="w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
                 </div>
+
+                {/* Content Overlay */}
+                <div className="relative z-10 h-full p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 backdrop-blur-md flex items-center justify-center text-primary border border-primary/20">
+                      {cat.icon}
+                    </div>
+                    <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest">
+                      {cat.subtitle}
+                    </span>
+                  </div>
                 
                 <h3 className="text-2xl md:text-3xl font-black text-foreground tracking-tight mb-3">
                   {cat.title}

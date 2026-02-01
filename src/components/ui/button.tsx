@@ -18,9 +18,9 @@ const buttonVariants = cva(
           hero: "bg-primary text-primary-foreground font-semibold uppercase tracking-wider hover:bg-primary/90 shadow-lg hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] transition-all duration-300",
           heroOutline: "border-2 border-foreground/30 bg-transparent text-foreground font-semibold uppercase tracking-wider hover:border-primary hover:text-primary transition-all duration-300",
           cta: "bg-gradient-to-r from-primary to-red-700 text-primary-foreground font-bold uppercase tracking-wider shadow-lg hover:shadow-[0_0_40px_hsl(var(--primary)/0.5)] hover:scale-105 transition-all duration-300",
-          premium: "bg-foreground text-background font-semibold tracking-tight hover:bg-foreground/90 transition-all duration-300 rounded-full",
-          gold: "bg-[#efa53a] text-black font-semibold tracking-tight hover:bg-[#efa53a]/90 transition-all duration-300 rounded-full shadow-lg",
-        },
+            premium: "bg-foreground text-background font-semibold tracking-tight hover:bg-foreground/90 transition-all duration-300 rounded-full",
+            gold: "bg-gold text-gold-foreground font-semibold tracking-tight hover:bg-gold/90 transition-all duration-300 rounded-full shadow-lg",
+          },
 
       size: {
         default: "h-10 px-4 py-2",

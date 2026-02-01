@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { name: "Accueil", path: "/" },
-  { name: "À Propos", path: "/about" },
-  { name: "Activités", path: "/activities" },
-  { name: "Services", path: "/services" },
-  { name: "Réalisations", path: "/projects" },
-  { name: "Contact", path: "/contact" },
-];
+import { useTranslation } from "react-i18next";
+import { ModeToggle } from "@/components/mode-toggle";
+import { LanguageToggle } from "@/components/language-toggle";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.activities"), path: "/activities" },
+    { name: t("nav.services"), path: "/services" },
+    { name: t("nav.projects"), path: "/projects" },
+    { name: t("nav.contact"), path: "/contact" },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/5">
@@ -27,7 +31,7 @@ const Header = () => {
               <span className="text-white font-heading font-black text-xl">S</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-heading text-lg md:text-xl font-black text-white tracking-tighter leading-none">
+              <span className="font-heading text-lg md:text-xl font-black tracking-tighter leading-none dark:text-white text-brand-black">
                 SOMA
               </span>
               <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
@@ -37,15 +41,15 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 bg-white/5 px-2 py-1.5 rounded-full border border-white/5">
+          <nav className="hidden lg:flex items-center gap-2 bg-black/5 dark:bg-white/5 px-2 py-1.5 rounded-full border border-black/5 dark:border-white/5">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-1.5 text-[13px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
                   location.pathname === link.path
-                    ? "text-white bg-white/10"
-                    : "text-white/60 hover:text-white hover:bg-white/5"
+                    ? "dark:text-white text-brand-black dark:bg-white/10 bg-black/10"
+                    : "dark:text-white/60 text-brand-black/60 dark:hover:text-white hover:text-brand-black dark:hover:bg-white/5 hover:bg-black/5"
                 }`}
               >
                 {link.name}
@@ -53,23 +57,31 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Actions */}
+          <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-1 mr-2">
+              <ModeToggle />
+              <LanguageToggle />
+            </div>
             <Button variant="gold" size="sm" asChild className="px-6 h-9 rounded-full">
               <Link to="/contact">
-                <span>Demande de Devis</span>
+                <span>{t("nav.quote")}</span>
               </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-2">
+            <ModeToggle />
+            <LanguageToggle />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-foreground"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -99,7 +111,7 @@ const Header = () => {
               ))}
               <Button variant="gold" size="lg" className="mt-4" asChild>
                 <Link to="/contact">
-                  Demande de Devis
+                  {t("nav.quote")}
                 </Link>
               </Button>
             </nav>

@@ -6,27 +6,30 @@
 
 @layer base {
   :root {
-    /* Dark industrial theme */
-    --background: 0 0% 5%;
+    /* Apple-inspired Industrial Dark Palette */
+    --background: 0 0% 7%; /* Slightly darker than #1d1d1b for depth */
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 8%;
+    --card: 0 0% 11%; /* #1d1d1b */
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 8%;
+    --popover: 0 0% 11%;
     --popover-foreground: 0 0% 98%;
 
-    /* Red accent - automotive power */
-    --primary: 0 84% 50%;
+    /* Brand Red - #e4221a */
+    --primary: 2 79% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
+    /* Brand Gold - #efa53a */
+    --gold: 36 86% 58%;
+    
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 15%;
+    --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 0% 18%;
+    --accent: 0 0% 25%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62% 50%;
@@ -34,19 +37,20 @@
 
     --border: 0 0% 18%;
     --input: 0 0% 15%;
-    --ring: 0 84% 50%;
+    --ring: 2 79% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 84% 35%) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 3%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 5%) 100%);
-    --shadow-glow: 0 0 40px hsl(0 84% 50% / 0.3);
-    --shadow-card: 0 10px 40px hsl(0 0% 0% / 0.5);
+    /* Advanced Textures */
+    --gradient-brand: linear-gradient(135deg, #e4221a 0%, #a31812 100%);
+    --gradient-gold: linear-gradient(135deg, #efa53a 0%, #c1812a 100%);
+    --gradient-dark: linear-gradient(180deg, #1d1d1b 0%, #000000 100%);
+    --shadow-lux: 0 20px 50px rgba(0, 0, 0, 0.5);
+    --glass-bg: rgba(29, 29, 27, 0.7);
+    --glass-border: rgba(239, 165, 58, 0.1);
 
-    /* Typography */
-    --font-heading: 'Oswald', sans-serif;
+    /* Typography - San-Serif Modern */
+    --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --sidebar-background: 0 0% 8%;

@@ -1,81 +1,93 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-const heroImage = "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2000";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-zinc-950">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Premium car engine"
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+      {/* Background & Spotlight Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] opacity-50" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px] opacity-30" />
+        
+        {/* Fine grid pattern for industrial feel */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
       </div>
 
-
-      {/* Content */}
-      <div className="container-wide relative z-10">
-        <div className="max-w-3xl">
+      {/* Content Container */}
+      <div className="container-wide relative z-10 pt-20">
+        <div className="flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-8"
           >
-            <span className="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold uppercase tracking-wider rounded-full mb-6">
-              Premium Automotive Solutions
+            <span className="px-5 py-2 border border-brand-gold/30 rounded-full text-[11px] font-bold text-brand-gold uppercase tracking-[0.3em] bg-brand-gold/5 backdrop-blur-sm">
+              Innovation & Performance
             </span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-heading text-6xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.9] mb-8"
           >
-            Automotive Lubrication Solutions{" "}
-            <span className="text-primary">You Can Trust</span>
+            SOMA <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">
+              LUBRIFIANTS
+            </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-lg md:text-xl text-white/50 max-w-2xl font-light tracking-tight leading-relaxed mb-12"
           >
-            Soma Lubrifiants delivers premium quality lubricants and maintenance solutions 
-            for automotive professionals. Trusted by workshops and fleet managers across the industry.
+            L'excellence technologique au service de la performance automobile. 
+            Découvrez nos solutions de lubrification premium pour une protection absolue.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row gap-6 items-center"
           >
-            <Button variant="cta" size="xl" asChild>
-              <Link to="/products" className="flex items-center gap-2">
-                Discover Our Products
-                <ArrowRight className="w-5 h-5" />
+            <Button variant="gold" size="xl" asChild className="px-10 rounded-full group">
+              <Link to="/products" className="flex items-center gap-3">
+                <span className="text-base">Nos Gammes</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/contact" className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                Contact Us
-              </Link>
+            <Button variant="ghost" size="xl" asChild className="text-white hover:bg-white/5 rounded-full border border-white/10 px-10">
+              <Link to="/contact">Expertise Technique</Link>
             </Button>
           </motion.div>
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold">Découvrir</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+        >
+          <ChevronDown className="w-5 h-5 text-brand-gold" />
+        </motion.div>
+      </motion.div>
+
+      {/* Ambient Gradient Overlay */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]" />
     </section>
   );
 };

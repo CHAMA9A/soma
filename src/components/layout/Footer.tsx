@@ -3,46 +3,44 @@ import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container-wide py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-[#050505] border-t border-white/5">
+      <div className="container-wide py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-heading font-bold text-xl">S</span>
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-heading font-black text-xl">S</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-heading text-xl font-bold text-foreground tracking-tight">
+                <span className="font-heading text-xl font-black text-white tracking-tighter leading-none">
                   SOMA
                 </span>
-                <span className="text-xs text-muted-foreground uppercase tracking-widest -mt-1">
+                <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
                   Lubrifiants
                 </span>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Trusted automotive lubrication solutions for professionals. 
-              Quality products backed by decades of industry expertise.
+            <p className="text-sm text-white/40 leading-relaxed font-light">
+              L'excellence en lubrification automobile. Solutions premium pour professionnels, 
+              portées par une innovation constante depuis plus de 25 ans.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold text-foreground mb-4">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
+            <h4 className="font-bold text-white tracking-tight mb-6">Navigation</h4>
+            <ul className="space-y-3">
               {[
-                { name: "About Us", path: "/about" },
-                { name: "Our Products", path: "/products" },
-                { name: "Activities", path: "/activities" },
-                { name: "Projects", path: "/projects" },
+                { name: "À Propos", path: "/about" },
+                { name: "Nos Produits", path: "/products" },
+                { name: "Activités", path: "/activities" },
+                { name: "Réalisations", path: "/projects" },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                    className="text-sm text-white/40 hover:text-brand-gold transition-colors duration-200 font-light"
                   >
                     {link.name}
                   </Link>
@@ -53,23 +51,21 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-heading text-lg font-semibold text-foreground mb-4">
-              Contact Us
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <span>123 Industrial Zone, Automotive District, 75000 Paris, France</span>
+            <h4 className="font-bold text-white tracking-tight mb-6">Contact</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-sm text-white/40 font-light">
+                <MapPin className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
+                <span>Zone Industrielle, Secteur Automobile, 75000 Paris, France</span>
               </li>
-              <li className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <a href="tel:+33123456789" className="hover:text-primary transition-colors">
+              <li className="flex items-center gap-3 text-sm text-white/40 font-light">
+                <Phone className="w-4 h-4 text-brand-red flex-shrink-0" />
+                <a href="tel:+33123456789" className="hover:text-brand-gold transition-colors">
                   +33 1 23 45 67 89
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-sm text-muted-foreground">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <a href="mailto:contact@soma-lubrifiants.com" className="hover:text-primary transition-colors">
+              <li className="flex items-center gap-3 text-sm text-white/40 font-light">
+                <Mail className="w-4 h-4 text-brand-red flex-shrink-0" />
+                <a href="mailto:contact@soma-lubrifiants.com" className="hover:text-brand-gold transition-colors">
                   contact@soma-lubrifiants.com
                 </a>
               </li>
@@ -78,10 +74,8 @@ const Footer = () => {
 
           {/* Social Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold text-foreground mb-4">
-              Follow Us
-            </h4>
-            <div className="flex gap-3">
+            <h4 className="font-bold text-white tracking-tight mb-6">Réseaux Sociaux</h4>
+            <div className="flex gap-4">
               {[
                 { icon: Facebook, href: "#" },
                 { icon: Linkedin, href: "#" },
@@ -90,7 +84,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-white/40 hover:bg-brand-red/10 hover:text-brand-red hover:border-brand-red/20 transition-all duration-300"
                   aria-label="Social link"
                 >
                   <social.icon className="w-5 h-5" />
@@ -101,22 +95,22 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Soma Lubrifiants. All rights reserved.
+        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-xs text-white/20 font-medium uppercase tracking-widest">
+            © {new Date().getFullYear()} Soma Lubrifiants. Tous droits réservés.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <Link
               to="/legal"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs text-white/20 hover:text-white transition-colors uppercase tracking-widest font-medium"
             >
-              Legal Notice
+              Mentions Légales
             </Link>
             <Link
               to="/privacy"
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="text-xs text-white/20 hover:text-white transition-colors uppercase tracking-widest font-medium"
             >
-              Privacy Policy
+              Confidentialité
             </Link>
           </div>
         </div>

@@ -19,34 +19,34 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/5">
       <div className="container-wide">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-xl">S</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+              <span className="text-white font-heading font-black text-xl">S</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-heading text-lg md:text-xl font-bold text-foreground tracking-tight">
+              <span className="font-heading text-lg md:text-xl font-black text-white tracking-tighter leading-none">
                 SOMA
               </span>
-              <span className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest -mt-1">
+              <span className="text-[10px] text-brand-gold font-bold uppercase tracking-[0.2em] mt-1">
                 Lubrifiants
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-2 bg-white/5 px-2 py-1.5 rounded-full border border-white/5">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 text-sm font-medium transition-colors duration-200 hover:text-primary ${
+                className={`px-4 py-1.5 text-[13px] font-semibold tracking-wide rounded-full transition-all duration-300 ${
                   location.pathname === link.path
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-white bg-white/10"
+                    : "text-white/60 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.name}
@@ -56,10 +56,10 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="gold" size="sm" asChild className="px-6 h-9 rounded-full">
               <a href="tel:+33123456789" className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Call Now
+                <Phone className="w-3.5 h-3.5" />
+                <span>Contact</span>
               </a>
             </Button>
           </div>

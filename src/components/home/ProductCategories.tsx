@@ -1,30 +1,36 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import productEngineOil from "@/assets/product-engine-oil.jpg";
-import productTransmissionOil from "@/assets/product-transmission-oil.jpg";
-import productCoolants from "@/assets/product-coolants.jpg";
+import { useInView } from "framer-motion";
+import { ArrowRight, ShieldCheck, Zap, Droplets } from "lucide-react";
 
 const categories = [
   {
-    title: "Engine Oils",
-    description: "Premium synthetic and mineral engine oils for gasoline and diesel engines. Maximum protection and performance.",
-    image: productEngineOil,
+    title: "Huiles Moteur",
+    subtitle: "Performance & Protection",
+    description: "Formules synthétiques avancées pour une longévité maximale du moteur.",
+    image: "https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1000",
     link: "/products#engine-oils",
+    icon: <Zap className="w-5 h-5" />,
+    gridClass: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Transmission Oils",
-    description: "High-quality gearbox and transmission fluids ensuring smooth operation and extended component life.",
-    image: productTransmissionOil,
+    title: "Transmission",
+    subtitle: "Fluidité absolue",
+    description: "Lubrifiants haute performance pour boîtes de vitesses.",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000",
     link: "/products#transmission-oils",
+    icon: <ShieldCheck className="w-5 h-5" />,
+    gridClass: "md:col-span-1 md:row-span-1",
   },
   {
-    title: "Coolants & Additives",
-    description: "Advanced coolants and performance additives for optimal engine temperature and system efficiency.",
-    image: productCoolants,
+    title: "Refroidissement",
+    subtitle: "Contrôle thermique",
+    description: "Protection contre la corrosion et régulation optimale.",
+    image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=1000",
     link: "/products#coolants",
+    icon: <Droplets className="w-5 h-5" />,
+    gridClass: "md:col-span-1 md:row-span-1",
   },
 ];
 
@@ -33,67 +39,85 @@ const ProductCategories = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding" ref={ref}>
-      <div className="container-wide">
+    <section className="section-padding bg-[#0a0a0a] relative overflow-hidden" ref={ref}>
+      <div className="container-wide relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-semibold uppercase tracking-wider rounded-full mb-4">
-            Our Products
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Premium Lubricant Ranges
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover our comprehensive range of automotive lubricants, engineered for 
-            professional performance and reliability.
-          </p>
-        </motion.div>
+        <div className="max-w-3xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className="text-brand-gold font-bold text-[11px] uppercase tracking-[0.3em] block mb-4"
+          >
+            L'Excellence soma
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6"
+          >
+            Solutions de <br />
+            <span className="text-white/40">Lubrification Premium</span>
+          </motion.h2>
+        </div>
 
-        {/* Categories Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {categories.map((category, index) => (
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 lg:gap-6 h-auto md:h-[700px]">
+          {categories.map((cat, idx) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
+              className={`${cat.gridClass} group relative rounded-3xl overflow-hidden bg-white/5 border border-white/10`}
             >
-              <Link
-                to={category.link}
-                className="group block relative rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
-              >
-                {/* Image */}
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
+              {/* Image with Zoom effect */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+              </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {category.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                    {category.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              {/* Content Overlay */}
+              <div className="relative z-10 h-full p-8 flex flex-col justify-end">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-brand-red/20 backdrop-blur-md flex items-center justify-center text-brand-red border border-brand-red/30">
+                    {cat.icon}
+                  </div>
+                  <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest">
+                    {cat.subtitle}
                   </span>
                 </div>
-              </Link>
+                
+                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-3">
+                  {cat.title}
+                </h3>
+                
+                <p className="text-white/60 text-sm md:text-base max-w-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  {cat.description}
+                </p>
+
+                <Link
+                  to={cat.link}
+                  className="inline-flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest group/link"
+                >
+                  Découvrir
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform text-brand-red" />
+                </Link>
+              </div>
+
+              {/* Glassmorphism Border Highlight */}
+              <div className="absolute inset-0 border border-white/0 group-hover:border-white/20 rounded-3xl transition-colors duration-500 pointer-events-none" />
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Background Decorative Element */}
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-red/5 rounded-full blur-[100px]" />
     </section>
   );
 };

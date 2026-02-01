@@ -5,15 +5,32 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
-      {/* Background & Spotlight Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] opacity-50" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px] opacity-30" />
-        
-        {/* Fine grid pattern for industrial feel */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
-      </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+        {/* Background Image & Effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Main Background Image */}
+          <motion.div
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.4 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <img 
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/ae5ea830-5c58-4a69-8ebb-f52d6b9b742b/Oil-Pumps-Work-Rhythmically-against-the-Backdrop-of-Dusky-Sky..jpg-resized-1769964262358.jpeg?width=8000&height=8000&resize=contain" 
+              alt="Industrial Oil Pumps" 
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay to darken and blend */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/40 to-[#0a0a0a]" />
+          </motion.div>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-red/10 rounded-full blur-[120px] opacity-50" />
+          <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px] opacity-30" />
+          
+          {/* Fine grid pattern for industrial feel */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 mix-blend-overlay" />
+        </div>
+
 
       {/* Content Container */}
       <div className="container-wide relative z-10 pt-20">
